@@ -9,6 +9,7 @@
 ```bash
 mise trust
 mise install
+mise run build
 mise run dev
 ```
 ### С помощью скрипта
@@ -21,6 +22,7 @@ chmod +x ./bin/dev
 ### Вручную
 
 ```bash
+docker compose --env-file ./.env.example -f docker-compose.dev.yml build
 docker compose --env-file ./.env.example -f docker-compose.dev.yml up -d
 ```
 

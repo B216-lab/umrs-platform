@@ -1,11 +1,11 @@
 services:
   umrs-api:
     container_name: umrs-api-dev
-    image: b216/umrs:dev
+    image: b216/umrs-backend:dev
     env_file: .env.example
     build:
-      context: ./umrs-api/
-      dockerfile: ./umrs-api/Dockerfile.dev
+      context: ./umrs-api
+      dockerfile: ./Dockerfile.dev
     ports:
       - '3000:3000'
     environment:

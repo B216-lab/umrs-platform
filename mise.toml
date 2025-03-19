@@ -6,6 +6,12 @@ node = "22"
 "npm:@nestjs/cli" = "latest" # 11.0.5
 "npm:@angular/cli" = "latest" # 19.2.3
 
+[tasks.build]
+description = 'Build docker development environment'
+run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml build"
+dir = "{{cwd}}"
+alias = 'd'
+
 [tasks.dev]
 description = 'Run docker development environment'
 run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml up -d"
