@@ -53,5 +53,17 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
 
+  umrs-frontend-dev:
+    container_name: umrs-frontend-dev
+    image: b216/umrs-frontend:dev
+    env_file: .env.example
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./frontend:/app      
+
 volumes:
   db-data:
