@@ -1,0 +1,3 @@
+[submodule "umrs-api"]
+	path = umrs-api
+	url = git@github.com:EgorGordinskiy/umrs-api.git
