@@ -2,6 +2,7 @@ services:
   umrs-api:
     container_name: umrs-api-dev
     image: b216/umrs:dev
+    env_file: .env.example
     build:
       context: ./umrs-api/
       dockerfile: ./umrs-api/Dockerfile.dev
