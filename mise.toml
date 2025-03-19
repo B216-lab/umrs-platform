@@ -5,3 +5,21 @@ node = "22"
 "npm:@devcontainers/cli" = "latest" # 0.73.0
 "npm:@nestjs/cli" = "latest" # 11.0.5
 "npm:@angular/cli" = "latest" # 19.2.3
+
+[tasks.dev]
+description = 'Run docker development environment'
+run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml up -d"
+dir = "{{cwd}}"
+alias = 'd'
+
+[tasks.down]
+description = 'Remove docker development containers'
+run = "docker compose down"
+dir = "{{cwd}}"
+alias = 'dd'
+
+[tasks.re]
+description = 'Restart docker development containers'
+run = "docker compose restart"
+dir = "{{cwd}}"
+alias = 'r'
