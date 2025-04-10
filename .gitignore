@@ -39,3 +39,4 @@ lerna-debug.log
 # temp directory
 .temp
 .tm
+.qodo
