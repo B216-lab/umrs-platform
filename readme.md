@@ -1,5 +1,14 @@
 # UMRS
 
+## Структура 
+Платформа
+- [Frontend](https://github.com/EgorGordinskiy/client-umrs
+- [Backend](https://github.com/EgorGordinskiy/umrs-api)
+
+Legacy анкеты
+- [Backend](https://github.com/EgorGordinskiy/umrs-server)
+- Frontend???
+
 ## Запуск для разработки
 
 ### С помощью [mise](https://mise.jdx.dev)
