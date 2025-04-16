@@ -2,7 +2,7 @@
 
 ## Структура 
 Платформа
-- [Frontend](https://github.com/EgorGordinskiy/client-umrs
+- [Frontend](https://github.com/EgorGordinskiy/client-umrs)
 - [Backend](https://github.com/EgorGordinskiy/umrs-api)
 
 Legacy анкеты
