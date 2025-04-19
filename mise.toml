@@ -22,10 +22,10 @@ alias = 'd'
 description = 'Remove docker development containers, volumes and networks with orphans'
 run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml  down -v --remove-orphans "
 dir = "{{cwd}}"
-alias = 'off'
+alias = 'o'
 
 [tasks.restart]
 description = 'Restart docker development containers'
-run = "docker compose restart"
+run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml restart"
 dir = "{{cwd}}"
 alias = 'r'

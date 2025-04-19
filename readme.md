@@ -18,8 +18,8 @@ Legacy анкеты
 ```bash
 mise trust
 mise install
-mise run build # или mise b
-mise run dev   # или mise d
+mise run build # или mise run b
+mise run dev   # или mise bun d
 ```
 ### С помощью скрипта
 
