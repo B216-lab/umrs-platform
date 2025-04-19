@@ -15,6 +15,28 @@ services:
     depends_on:
       - pgbouncer
 
+
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:26.1.4
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=${KC_BOOTSTRAP_ADMIN_USERNAME}
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=${KC_BOOTSTRAP_ADMIN_PASSWORD}
+#      - KC_DB=postgres
+#      - KC_DB_USERNAME=${DB_USERNAME}
+#      - KC_DB_PASSWORD=${DB_PASSWORD}
+#      - KC_DB_URL_HOST=pgbouncer
+#      - KC_DB_URL_PORT=${DB_PORT}
+    ports:
+      - "8080:8080"
+    command:
+      - start-dev
+      - --import-realm
+    volumes:
+      - ./data/realm-export.json:/opt/keycloak/data/import/realm-export.json
+#    depends_on:
+#      - pgbouncer
+
   pgbouncer:
     container_name: pgbouncer-dev
     image: pgbouncer/pgbouncer:1.15.0
@@ -39,6 +61,16 @@ services:
       - POSTGRES_USER=${DB_USERNAME} # create the specified user with superuser power and a database with the same name if no POSTGRES_DB is specified
     volumes:
       - db-data:/var/lib/postgresql/data
+
+
+#  create-schema:
+#    container_name: create-schema
+#    image: postgis/postgis
+#    depends_on:
+#      - database
+#    command: psql -h database-dev -U ${DB_USERNAME} -d ${DB_NAME} -f /create-schema.sql
+#    volumes:
+#      - ./create-schema.sql:/create-schema.sql
 
   umrs-frontend-dev:
     container_name: umrs-frontend-dev
