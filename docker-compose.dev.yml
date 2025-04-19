@@ -32,6 +32,8 @@ services:
   database:
     container_name: database-dev
     image: postgis/postgis
+    ports:
+      - "3005:5432"
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD} # superuser password
       - POSTGRES_USER=${DB_USERNAME} # create the specified user with superuser power and a database with the same name if no POSTGRES_DB is specified
