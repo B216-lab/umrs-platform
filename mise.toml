@@ -10,7 +10,7 @@ node = "22"
 description = 'Build docker development environment'
 run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml build"
 dir = "{{cwd}}"
-alias = 'd'
+alias = 'b'
 
 [tasks.dev]
 description = 'Run docker development environment'
@@ -19,12 +19,12 @@ dir = "{{cwd}}"
 alias = 'd'
 
 [tasks.down]
-description = 'Remove docker development containers'
-run = "docker compose down"
+description = 'Remove docker development containers, volumes and networks with orphans'
+run = "docker compose --env-file ./.env.example -f docker-compose.dev.yml  down -v --remove-orphans "
 dir = "{{cwd}}"
-alias = 'dd'
+alias = 'off'
 
-[tasks.re]
+[tasks.restart]
 description = 'Restart docker development containers'
 run = "docker compose restart"
 dir = "{{cwd}}"

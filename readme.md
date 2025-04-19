@@ -12,14 +12,14 @@ Legacy анкеты
 ## Запуск для разработки
 
 ### С помощью [mise](https://mise.jdx.dev)
-1. [Установить](https://mise.jdx.dev/installing-mise.html#installing-mise) и [настроить](https://mise.jdx.dev/dev-tools/shims.html#shims) 
+1. [Установить](https://mise.jdx.dev/installing-mise.html#installing-mise) и [настроить](https://mise.jdx.dev/dev-tools/shims.html#shims) mise
 2. Клонировать репозиторий
 3. В корне проекта выполнить
 ```bash
 mise trust
 mise install
-mise run build
-mise run dev
+mise run build # или mise b
+mise run dev   # или mise d
 ```
 ### С помощью скрипта
 
