@@ -35,6 +35,21 @@ docker compose --env-file ./.env.example -f docker-compose.dev.yml build
 docker compose --env-file ./.env.example -f docker-compose.dev.yml up -d
 ```
 
+### Локальные домены и контейнеры
+Пока нет proxy или что там нужно для адекватной работы docker network в
+контексте многих задач доступа к сервисам, нужно установить, что umrs-api это localhost
+(для frontend скорее всего нужно сделать то же самое)
+
+1. Сохранить конфиг hosts
+```bash
+sudo cp /etc/hosts ~/hosts.bak
+```
+ 
+2. Добавить в `/etc/hosts`
+```bash
+127.0.0.1  umrs-api
+127.0.0.1  keycloak
+```
 
 ## Production?
 God bless
