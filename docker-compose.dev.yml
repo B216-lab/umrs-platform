@@ -10,10 +10,11 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=development
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
     volumes:
       - ./umrs-api:/usr/src/app
     depends_on:
-      - pgbouncer
+      - keycloak
 
 
   keycloak:
