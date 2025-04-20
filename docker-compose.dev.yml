@@ -22,20 +22,20 @@ services:
     environment:
       - KC_BOOTSTRAP_ADMIN_USERNAME=${KC_BOOTSTRAP_ADMIN_USERNAME}
       - KC_BOOTSTRAP_ADMIN_PASSWORD=${KC_BOOTSTRAP_ADMIN_PASSWORD}
-#      - KC_DB=postgres
-#      - KC_DB_USERNAME=${DB_USERNAME}
-#      - KC_DB_PASSWORD=${DB_PASSWORD}
-#      - KC_DB_URL_HOST=pgbouncer
-#      - KC_DB_URL_PORT=${DB_PORT}
+      - KC_HTTPS_CERTIFICATE_FILE=/opt/keycloak/conf/cert.pem
+      - KC_HTTPS_CERTIFICATE_KEY_FILE=/opt/keycloak/conf/key.pem
+      - KC_HOSTNAME_STRICT=false
     ports:
-      - "8080:8080"
+      - "8443:8443"
     command:
       - start-dev
       - --import-realm
+      - --https-certificate-file=/opt/keycloak/conf/cert.pem
+      - --https-certificate-key-file=/opt/keycloak/conf/key.pem
     volumes:
       - ./data/realm-export.json:/opt/keycloak/data/import/realm-export.json
-#    depends_on:
-#      - pgbouncer
+      - ./certs/cert.pem:/opt/keycloak/conf/cert.pem
+      - ./certs/key.pem:/opt/keycloak/conf/key.pem
 
   pgbouncer:
     container_name: pgbouncer-dev
@@ -61,16 +61,6 @@ services:
       - POSTGRES_USER=${DB_USERNAME} # create the specified user with superuser power and a database with the same name if no POSTGRES_DB is specified
     volumes:
       - db-data:/var/lib/postgresql/data
-
-
-#  create-schema:
-#    container_name: create-schema
-#    image: postgis/postgis
-#    depends_on:
-#      - database
-#    command: psql -h database-dev -U ${DB_USERNAME} -d ${DB_NAME} -f /create-schema.sql
-#    volumes:
-#      - ./create-schema.sql:/create-schema.sql
 
   umrs-frontend-dev:
     container_name: umrs-frontend-dev
