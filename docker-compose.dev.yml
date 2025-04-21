@@ -13,6 +13,8 @@ services:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
     volumes:
       - ./umrs-api:/usr/src/app
+      - ./certs/cert.pem:/usr/src/app/cert.pem
+      - ./certs/key.pem:/usr/src/app/key.pem
     depends_on:
       - keycloak
 
