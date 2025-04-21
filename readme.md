@@ -38,7 +38,8 @@ docker compose --env-file ./.env.example -f docker-compose.dev.yml up -d
 ### Локальные домены и контейнеры
 Пока нет proxy или что там нужно для адекватной работы docker network в
 контексте многих задач доступа к сервисам, нужно установить, что umrs-api это localhost
-(для frontend скорее всего нужно сделать то же самое)
+(для frontend скорее всего нужно сделать то же самое).
+PS я пробовал `KEYCLOAK_FRONTEND_URL=https://localhost:8443`, но чет не работает.
 
 1. Сохранить конфиг hosts
 ```bash

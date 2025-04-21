@@ -28,6 +28,12 @@ services:
       - KC_HOSTNAME_STRICT=false
     ports:
       - "8443:8443"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "https://localhost:8443/realms/master" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
     command:
       - start-dev
       - --import-realm
