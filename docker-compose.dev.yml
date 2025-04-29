@@ -1,5 +1,6 @@
 services:
   umrs-api:
+    user: "1000:1000"
     container_name: umrs-api-dev
     image: b216/umrs-backend:dev
     env_file: .env.example
@@ -72,6 +73,7 @@ services:
       - db-data:/var/lib/postgresql/data
 
   umrs-frontend-dev:
+    user: "1000:1000"
     container_name: umrs-frontend-dev
     image: b216/umrs-frontend:dev
     env_file: .env.example
