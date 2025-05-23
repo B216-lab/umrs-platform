@@ -2,12 +2,11 @@
 
 ## Структура 
 Платформа
-- [Frontend](https://github.com/EgorGordinskiy/client-umrs)
 - [Backend](https://github.com/EgorGordinskiy/umrs-api)
 
-Legacy анкеты
-- [Backend](https://github.com/EgorGordinskiy/umrs-server)
-- Frontend???
+---
+
+- [Frontend](https://github.com/EgorGordinskiy/client-umrs)
 
 ## Запуск для разработки
 
